@@ -1,0 +1,23 @@
+<apex:page controller="AccountClass" tabStyle="Account" >
+    <apex:form >
+        <apex:pageBlock title="Accounts with CheckBoxes">
+            <apex:pageBlockSection title="List of Available Accounts" collapsible="false">
+                <apex:dataTable value="{!accounts}" var="a" border="1" cellpadding="4" columnsWidth="100px">
+                    <apex:column >
+                        <apex:inputCheckbox value="{!a.selected}">
+                            <!-- <apex:actionSupport event="onclick" action="{!GetSelected}"/>-->
+                        </apex:inputCheckbox>
+                    </apex:column>
+                    <apex:column headerValue="Account Name" value="{!a.acc.Name}"/>
+                    <apex:column headervalue="Account Number" value="{!a.acc.AccountNumber}" />
+                    <apex:column headervalue="Phone" value="{!a.acc.Phone}" />
+                </apex:dataTable>               
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandLink action="{!printPDF}" target="_blank" style="text-decoration:none">
+                    <apex:commandButton value="Print Selected Accounts"/>
+                </apex:commandLink>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

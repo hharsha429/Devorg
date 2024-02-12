@@ -1,0 +1,24 @@
+<apex:page controller="ContactWraper">
+    <apex:form >
+    <apex:pageBlock tabStyle="account">
+       
+             <apex:pageBlockTable value="{!cn}" var="w">
+               
+                 
+                 <apex:column >
+                    
+                    <apex:inputCheckbox value="{!w.test}" />
+                </apex:column>
+                 
+             
+                <apex:column value="{!w.con.lastname}"/>
+                <apex:column value="{!w.con.phone}"/>
+                            </apex:pageBlockTable>   
+        <apex:pageBlockButtons location="bottom">
+                <apex:commandLink action="{!pag}" target="_blank" style="text-decoration:none">
+                    <apex:commandButton value="Print Selected Accounts"/>
+                </apex:commandLink>
+        </apex:pageBlockButtons>
+    </apex:pageBlock>
+        </apex:form>
+</apex:page>

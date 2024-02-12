@@ -1,0 +1,11 @@
+<apex:page controller="first">
+    <apex:pageBlock tabStyle="opportunity" title="My first page">
+        <apex:pageBlockSection collapsible="false" title="Account Details">
+            <apex:pageBlockTable value="{!acc}" var="a">
+                <apex:column value="{!a.name}"/>
+                <apex:column value="{!a.industry}"/>
+                <apex:column value="{!a.phone}"/>
+            </apex:pageBlockTable>
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+</apex:page>

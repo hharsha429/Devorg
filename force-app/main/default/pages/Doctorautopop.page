@@ -1,0 +1,17 @@
+<apex:page controller="Doctorautopopulate">
+    <apex:form >
+        <apex:pageblock id="pg">
+            <apex:pageBlockSection columns="1">
+            <apex:inputField value="{!pat.Patient_Name__c}"/>
+            <apex:inputField value="{!pat.Doctor__c}">
+                <apex:actionSupport event="onchange" action="{!fetc}" reRender="pg"/>
+             </apex:inputField>
+                <apex:inputField value="{!doc.Name}" />
+                <apex:inputField value="{!doc.Department__c}"/>
+                <apex:inputField value="{!doc.Designation__c}"/>
+            </apex:pageBlockSection>
+        </apex:pageblock>
+    </apex:form>
+
+
+</apex:page>

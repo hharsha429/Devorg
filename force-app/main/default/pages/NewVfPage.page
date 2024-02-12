@@ -1,0 +1,8 @@
+<apex:page standardController="Patient__c" >
+   
+<script language="javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script language="javascript"> (function(){
+$('input[name="new"]').css('display','none');
+</script>
+
+</apex:page>

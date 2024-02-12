@@ -1,0 +1,9 @@
+<template>
+    <div class="container">
+        <lightning-input label="Account Searcher" data-input="search" type="text" onchange={handleChangeAC} onblur={handleBlurAC} class="search-input" value={inputValue}>
+        </lightning-input>  
+        <section if:true={searching} class="list-values">
+            <p for:each={options} for:item="element" key={element.Id} class="list-option" onclick={handleClickOption} data-name={element.Id}>{element.Name}</p>
+        </section>
+    </div>
+</template>

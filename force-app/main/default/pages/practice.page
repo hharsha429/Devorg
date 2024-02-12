@@ -1,0 +1,9 @@
+<apex:page tabStyle="opportunity" title="User Details">
+    <apex:sectionHeader title="Current user Details" subtitle="Details about user"/>
+    <apex:pageBlock >
+        <apex:pageBlockSection >
+            {!$User.LastName}<br/>
+            {!$User.Username}
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+</apex:page>

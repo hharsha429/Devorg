@@ -1,0 +1,18 @@
+<apex:page controller="Acc_Create">
+    <apex:form >
+        <apex:pageBlock tabStyle="Account" title="Select action">
+            <apex:pageBlockSection columns="1">
+               
+                    <apex:inputField value="{!con.Account__c}" label="harsha" >acc
+                       <apex:actionSupport event="onChange" reRender="Panel"/>
+                  </apex:inputField>
+           
+         </apex:pageBlockSection>
+      </apex:pageBlock>
+         <apex:outputPanel id="panel">
+           
+        </apex:outputPanel>
+    <apex:commandButton value="Save" action="{!save}">
+        </apex:commandButton>
+ </apex:form>
+</apex:page>

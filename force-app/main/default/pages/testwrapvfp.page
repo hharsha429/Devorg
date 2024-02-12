@@ -1,0 +1,31 @@
+<apex:page controller="testwrap">
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageBlockButtons location="bottom">
+           <apex:commandButton action="{!selected}" value="show"/>
+                </apex:pageBlockButtons>
+            <apex:pageBlockTable value="{!wp}" var="w">
+                 <apex:column >
+                    <apex:facet name="header">
+                       
+                        <apex:inputCheckbox />
+                                                                      
+                    </apex:facet>
+                     <apex:inputCheckbox value="{!w.chec}" id="inputId"/>
+                </apex:column>
+                <apex:column value="{!w.a.name}"/>
+                <apex:column value="{!w.a.phone}"/>
+                <apex:column headerValue="Action">
+                    <apex:commandButton value="edit"  id="b1" action="{!selected}" />&nbsp;&nbsp;  
+                    <apex:commandButton value="Del" id="b2"   action="{!selected}"/>
+                </apex:column>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+        <apex:pageBlock >
+            <apex:pageBlockTable value="{!ac}" var="b">
+                <apex:column value="{!b.name}"/>
+                <apex:column value="{!b.phone}"/>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

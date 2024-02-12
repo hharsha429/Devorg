@@ -1,0 +1,10 @@
+<apex:page standardcontroller="account" >
+    <style>
+        .myFormStyle {
+            background-color: blue;
+        }
+    </style>
+    <apex:form styleClass="myFormStyle">
+        <div>To complete the request, click on <b>Submit for Approval</b> button located on the <b>Approval History</b> section of this page.</div>
+    </apex:form>
+</apex:page>

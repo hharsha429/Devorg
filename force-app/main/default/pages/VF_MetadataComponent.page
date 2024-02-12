@@ -1,0 +1,23 @@
+<apex:page sidebar="false" controller="MetadataDataDetail" showHeader="{!!bGuestUser}" standardStylesheets="true"  applyBodyTag="{!!bGuestUser}" applyHtmlTag="{!!bGuestUser}" >
+   <c:PackageScript />
+   <apex:pageBlock title="Metadata Components Selection" id="pageblock">
+   Please select desired Metadata Components to be extracted.
+   <apex:pageBlockSection columns="2" id="pageBlockSection">
+   <apex:pageBlockSectionItem id="pageBlockSectionItem">
+   
+   <apex:form id="frmId"> 
+       <apex:inputHidden value="{!strSelectedComponent}" id="theHiddenInput"/>
+       <apex:actionfunction name="createXML" action="{!createProjectXMLFile}">   
+       </apex:actionfunction>
+  </apex:form>
+  
+  <div id="metaComponent" style="margin-left: 0%;margin-top: 2%;" styleClass="metaData">
+  <!--<apex:outputPanel id="metaComponent" layout="block" style="margin-left: 23%;margin-top: 2%;" styleClass="metaData"/>-->
+  <!--<apex:outputPanel id="metaComponent" layout="block" style="margin-left: 23%;margin-top: 2%;" styleClass="metaData"/>-->
+  </div>
+  </apex:pageBlockSectionItem>
+  <apex:pageBlockSectionItem >
+  </apex:pageBlockSectionItem>
+  </apex:pageBlockSection>
+  </apex:pageBlock>
+</apex:page>

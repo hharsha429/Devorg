@@ -1,0 +1,113 @@
+<apex:component layout="none" >
+ 
+ <link rel="stylesheet" href="{!URLFOR($Resource.extjs, 'extjs/resources/css/ext-all.css')}"/>
+  <link rel="stylesheet" href="{!URLFOR($Resource.extjs, 'extjs/resources/css/xtheme-gray.css')}"/>
+  <script type="text/javascript" src="{!URLFOR($Resource.extjs, 'extjs/ext-all-debug.js')}"></script>
+    <!--<link rel="stylesheet" href="{!URLFOR($Resource.cwb,'/cwb/css/bootstrap2.css')}"/> -->
+        
+ <script>
+        Ext.onReady(function() {
+            var store = Ext.create('Ext.data.TreeStore', {
+                proxy: {
+                    type: 'ajax',
+                    url: '{!$Page.metadataDetail}'
+                },
+                sorters: [{
+                    property: 'leaf',
+                    direction: 'ASC'
+                }, {
+                    property: 'text',
+                    direction: 'ASC'
+                }]
+            });
+        
+            var tree = Ext.create('Ext.tree.Panel', {
+                store: store,
+                rootVisible: false,
+                useArrows: true,
+                frame: true,
+                title: 'Metadata Components',
+                region:'west',
+                split: true,
+                renderTo: 'metaComponent',
+                width: 500,
+                height: 500,
+                dockedItems: [{
+                    xtype: 'toolbar',
+                    items:[ {
+                        text: 'Generate package.xml File',
+                        handler: function(){
+                            var records = tree.getView().getChecked(),
+                                names = [];
+                                names1=[];
+                                var mapData={};
+                           
+                           if(records.length>0){ 
+                            Ext.Array.each(records, function(rec){
+                           
+                             if(rec.parentNode.get('text')!='Root'){
+                               var objcomp=new Component(escapeHtml(rec.parentNode.get('text')),escapeHtml(rec.get('text')));
+                               names1.push(objcomp);
+                               names.push(rec.get('text'));
+                               
+                                var key=rec.parentNode.get('text'); 
+                                 if(mapData.hasOwnProperty(key)){
+                                   mapData[key].push(objcomp);
+                                 }else{
+                                    var names2=[]; 
+                                    names2.push(objcomp);
+                                    mapData[key]=names2;
+                                 }
+                                } 
+                            });
+                            
+                           
+                            var hidId='{!$Component.pageblock.pageBlockSection.pageBlockSectionItem.frmId.theHiddenInput}';
+                            //console.log(hidId);
+                            document.getElementById(hidId).value=JSON.stringify(mapData);
+                            
+                             createXML();
+                            Ext.MessageBox.show({
+                                title: 'Selected Component(s) size :'+records.length,
+                                msg: names.join('<br />'),
+                                icon: Ext.MessageBox.INFO
+                            });
+                           }else{
+                              Ext.MessageBox.show({
+                                title: 'Please select atleast one component!!',
+                                msg: '',
+                                icon: Ext.MessageBox.INFO
+                            });
+                           } 
+                        }
+                    },
+                   
+                    
+                    
+                    ]
+                }]
+            });
+            
+            tree.on('checkchange', 
+                function(node, checked, eOpts) 
+                {
+                    Ext.each(node.childNodes, 
+                        function(child) 
+                        {
+                            child.set('checked', checked); 
+                        });
+                });
+        });
+        function escapeHtml(str){
+        return str.replace(/&/g, '&amp;')
+               .replace(/</g, '&lt;')
+                .replace(/'/g, '&apos;');
+        
+        
+        }
+     function Component(Type,ComponentName) {
+       this.Type = Type;
+       this.ComponentName=ComponentName;
+     }  
+    </script>
+</apex:component>

@@ -1,0 +1,72 @@
+<apex:page tabStyle="Clone_Related_Lists__tab" controller="CloneListController">
+	<apex:form >
+		<apex:pageMessages id="error" showDetail="true"/>
+		<apex:pageBlock title="{!$Label.SOURCE_RECORD_PAGE_BLOCK_TITLE}">
+			<apex:pageBlockSection columns="2" rendered="{!NOT(blockSource)}">
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel for="source" value="{!$Label.SOURCE_RECORD_PAGE_BLOCK_SECTION_TITLE}"/>
+					<apex:inputText id="source" value="{!sourceId}"/>
+				</apex:pageBlockSectionItem>
+				<apex:commandButton value="{!$Label.SOURCE_RECORD_PAGE_BLOCK_SECTION_BUTTON}" status="getsource" rerender="error, tableblock, destblock" action="{!getChildRecords}"/>
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel for="parent" value="{!$Label.SOURCE_RECORD_PAGE_BLOCK_SECTION_CHECKBOX}"/>
+					<apex:inputCheckbox id="parent" value="{!cloneParent}">
+						<apex:actionSupport event="onchange" action="{!setCloneParent}" rerender="destblock"/>
+					</apex:inputCheckbox>
+				</apex:pageBlockSectionItem>
+			</apex:pageBlockSection>
+				<apex:actionStatus id="getsource">
+					<apex:facet name="stop">
+						<apex:pageBlockTable id="tableblock" value="{!childRecords}" var="child">
+							<apex:column >
+								<apex:facet name="header">
+									{!$Label.SOURCE_RECORD_PAGE_BLOCK_SECTION_SELECT_HEADER}
+								</apex:facet>
+								<apex:inputCheckbox disabled="{!IF(child.recordAmount>0, false, true)}" value="{!child.selected}"/>
+							</apex:column>
+							<apex:column >
+								<apex:facet name="header">
+									{!$Label.SOURCE_RECORD_PAGE_BLOCK_SECTION_SELECT_NAME}
+								</apex:facet>
+								<apex:outputText value="{!child.objectName}"/>
+							</apex:column>
+							<apex:column >
+								<apex:facet name="header">
+									{!$Label.SOURCE_RECORD_PAGE_BLOCK_SECTION_MASTER_HEADER}
+								</apex:facet>
+								<apex:inputCheckbox disabled="true" value="{!child.masterDetail}"/>
+							</apex:column>
+							<apex:column >
+								<apex:facet name="header">
+									{!$Label.SOURCE_RECORD_PAGE_BLOCK_SECTION_RECORD_HEADER}
+								</apex:facet>
+								<apex:outputText value="{!child.recordAmount}"/>
+							</apex:column>
+						</apex:pageBlockTable>
+					</apex:facet>
+					<apex:facet name="start">
+						<apex:outputText value="{!$Label.SOURCE_RECORD_PAGE_BLOCK_SECTION_START_FACET}"/>
+					</apex:facet>
+				</apex:actionStatus>
+		</apex:pageBlock>
+		<apex:pageBlock id="destblock" title="{!$Label.DESTINATION_RECORD_PAGE_BLOCK_TITLE}">
+			<apex:pageBlockSection columns="2">
+				<apex:pageBlockSectionItem rendered="{!NOT(blockDestination)}">
+					<apex:outputLabel for="destination" value="{!$Label.DESTINATION_RECORD_PAGE_BLOCK_SECTION_DEST_LABEL}"/>
+					<apex:inputText disabled="{!blockDestination}" id="destination" value="{!destinationId}"/>
+				</apex:pageBlockSectionItem>
+				<apex:actionStatus id="getdest">
+					<apex:facet name="stop">
+						<apex:commandButton disabled="{!blockDestinationButton}" status="getdest" value="{!$Label.DESTINATION_RECORD_PAGE_BLOCK_SECTION_ACTION_BUTTON}" action="{!copyChildRecords}" rerender="error, endmessage"/>
+					</apex:facet>
+					<apex:facet name="start">
+						<apex:outputPanel >
+							<apex:image url="{!URLFOR($Resource.LoadWheel)}"/>
+							<apex:outputText value="{!$Label.DESTINATION_RECORD_PAGE_BLOCK_SECTION_ACTION_LABEL}"/>
+						</apex:outputPanel>
+					</apex:facet>
+				</apex:actionStatus>
+			</apex:pageBlockSection>
+		</apex:pageBlock>
+	</apex:form>
+</apex:page>

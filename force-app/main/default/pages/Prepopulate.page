@@ -1,0 +1,23 @@
+<apex:page standardController="Account" extensions="Autopopulate" showHeader="true" sidebar="true">
+    <apex:sectionHeader title="Log A Call"/>
+    <apex:form id="pageForm">
+        <apex:pageBlock title="Call Edit" mode="edit">
+            <apex:pageBlockButtons location="both">
+                <apex:commandButton value="Save" action="{!save}" id="saveButton"/>
+                <apex:commandButton value="Cancel" action="{!cancel}" />
+            </apex:pageBlockButtons>
+            <br />
+            <apex:pageBlockSection title="Owner" columns="2" collapsible="false">
+                <apex:inputField value="{!Con.Name}" label="Name" style="width:200px;height:15px;" />
+                <apex:inputField value="{!Con.Type}" label="Type" />
+                <apex:inputField value="{!Con.Stagename}" label="Stage" />
+                <apex:inputField value="{!Con.CloseDate}" label="Close Date" />
+               
+                <apex:outputField value="{!Con.AccountId}" label="Account"/>
+                <apex:inputField value="{!Con.Sic__c}" label="SIC" html-disabled="true" />
+                 <apex:inputField value="{!Con.PinNo__c}" label="PIN" html-disabled="true"/>
+               
+            </apex:pageBlockSection>
+                </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,37 @@
+<apex:page controller="Myclass" showHeader="false">
+    <script>
+    
+    
+    
+    
+    
+    </script>
+    <apex:form >
+        <apex:pageBlock >
+            <apex:panelGrid columns="2">
+                <apex:selectList size="1">
+                    <apex:selectoptions value="{!allObj}"/>
+                </apex:selectList>
+
+               Triggers
+                 <apex:selectList size="1" style="background-color:red;">
+                    <apex:selectoptions value="{!allTrigg}"/>
+                </apex:selectList>
+            </apex:panelGrid>
+        </apex:pageBlock>
+
+            <apex:panelGrid style="background-color:blue;width:80px;" >
+               Classes <apex:selectList size="1" value="{!selectedPage}">
+                    <apex:selectoptions value="{!allClass}"/>
+                <apex:actionSupport event="onchange" action="{!Process}" reRender="one"/>
+                </apex:selectList>
+              Pages  <apex:outputPanel id="one">
+
+                 <apex:selectList size="1" style="background-color:orange;"  >
+                    <apex:selectoptions value="{!allPages}"/>
+                </apex:selectList>
+                    </apex:outputPanel>
+            </apex:panelGrid>
+
+    </apex:form>
+</apex:page>

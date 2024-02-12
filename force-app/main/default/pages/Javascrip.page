@@ -1,0 +1,19 @@
+<apex:page id="pg1">
+<apex:form id="frm1">
+    <apex:outputLabel >Enter A :</apex:outputLabel>
+<apex:inputtext id="idInputTxt1" />
+     <apex:outputLabel >Enter B :</apex:outputLabel>
+<apex:inputtext id="idInputTxt2" />
+     <apex:outputLabel >Addition is :</apex:outputLabel>
+<apex:inputtext id="idInputTxt3" />
+<apex:commandButton value="Calculate" onmouseover="funcRedirect();"/>
+    <script type="text/javascript">
+function funcRedirect()
+{
+ 
+    alert('addition is :');
+ }
+}
+</script>
+</apex:form>
+</apex:page>

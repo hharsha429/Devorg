@@ -1,0 +1,29 @@
+<apex:page controller="Acc_contacts">
+    <apex:form >
+        <apex:pageBlock title="Accounts with contacts">
+            <apex:pageBlockTable value="{!List}" var="a">
+            <apex:column value="{!a.name}"/>
+                
+            </apex:pageBlockTable>
+        
+        </apex:pageBlock>
+        
+   <!--      <apex:repeat value="{!List}" var="a">
+           <table>
+            <tr>
+               <td style="font-weight:bold;">
+                 <apex:outputText >{!a.name}</apex:outputText>           
+               </td>
+            </tr>
+            <tr>
+              <td>
+                <apex:repeat value="{!a.Contacts}" var="c">
+                  <apex:outputText >{!c.Name}</apex:outputText><br/>
+                    <apex:outputText >{!c.Phone}</apex:outputText><br/>
+                </apex:repeat>
+              </td>
+           </tr>
+           </table>
+        </apex:repeat>-->
+    </apex:form>
+</apex:page>

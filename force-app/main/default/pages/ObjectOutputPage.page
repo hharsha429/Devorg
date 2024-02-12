@@ -1,0 +1,126 @@
+<apex:page controller="ObjectOutput" name="ObjectOutputPage" >
+    `<style type="text/css">`
+         .verticalLine {
+              border: 2px solid red; padding-left: 2px;
+            }
+          .roundBorder {
+              border: 2px solid red; padding-left: 2px;
+            }
+       </style>
+    <script type="text/javascript"> 
+    function setObjName(objName){
+        
+        var objectName= objName.value;
+        alert(objectName);
+        
+    }
+    
+    function controlSearchJS(selection){
+        alert('controlSearchJS');
+        if( selection.checked ) {
+            alert('enable controlSearchJS');
+            document.getElementById('objectsDropDownList');
+        }else{
+            alert('disable controlSearchJS');
+            document.getElementById('textSearch');
+        }
+        
+    }
+      
+
+  function redirectToNewPage(){
+      var s={!s1};
+      window.open('/'+s1,'_blank');
+  }
+
+
+    }  
+    </script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+   
+
+    <apex:form >
+        <apex:pageBlock title="Please select objects" tabStyle="Account" id="objectsDropDownList" >
+             
+            <apex:pageBlockSection collapsible="true" columns="2" >
+               
+                <apex:selectList size="1" value="{!choosenCObject}" label="Standard Objects :">
+                    
+                    <apex:selectoptions value="{!objects}" />
+                    <apex:actionSupport event="onchange" action="{!redirectStd}"  reRender=""/> 
+                </apex:selectList>
+                
+                <apex:selectList value="{!choosenObject}" size="1" ><b>Custom Objects :</b>
+                    
+                    <apex:selectoptions value="{!cobjects}"  />
+                      
+                </apex:selectList>
+                
+                
+                
+            </apex:pageBlockSection>
+           
+            <apex:pageBlockSection collapsible="true" columns="2">
+                <script>
+                function show(x){
+                    if(x.checked)
+                    document.getElementById('{!$Component.textSearch}').style.display = 'block';
+               
+                    else
+                        document.getElementById('{!$Component.textSearch}').style.display = 'none';
+                }
+                </script>
+                <apex:inputCheckbox id="inputSearchText" label="Select to enter search" value="{!controlSearch}"  onclick="show(this);">
+                    <!--apex:actionSupport event="onchange" rerender="textSearch,objectsDropDownList" action="{!click}"/-->          
+    </apex:inputCheckbox>
+  
+    
+                <apex:outputPanel id="textSearch" style="display: none">  
+                    
+                        <!--apex:pageBlockSectionItem >-->
+                
+                    <apex:outputLabel value="Enter :" />
+                    <apex:inputText value="{!searrched}" styleClass="verticalLine"/>  
+                  <apex:commandButton value="search" /> 
+                        <!--/apex:pageBlockSectionItem-->
+            </apex:outputPanel>
+             
+            </apex:pageBlockSection>
+        </apex:pageBlock> 
+        <apex:pageBlock tabStyle="contact" title="please select classes ">
+            <apex:outputPanel >
+            <apex:pageBlockSection columns="2">
+           
+            
+             <apex:selectList size="1" value="{!selectedtrigger}" ><b>Apex Triggers :</b>
+                    
+                    <apex:selectoptions value="{!Triggers}"/>
+                    <apex:actionSupport event="onchange" action="{!triggerredirect}" /> 
+                </apex:selectList>
+                
+                              <apex:selectList size="1" value="{!choosencompo}" ><b>VisualForce Components : :</b>
+                    
+                    <apex:selectoptions value="{!components}"/>
+                    <apex:actionSupport event="onchange" action="{!CompRedirect}" /> 
+                </apex:selectList>
+                 <apex:selectList size="1" value="{!selectedClass}"><b>Apex Classes :</b>
+                        <apex:selectoptions value="{!allClass}"/>
+                        <apex:actionSupport event="onchange" action="{!Classredirect}" />
+                    </apex:selectList>
+                
+             <apex:selectList size="1" value="{!choosenProfile}" ><b>Profiles :</b>
+                    
+                    <apex:selectoptions value="{!allProfiles}"/>
+                    <apex:actionSupport event="onchange" action="{!profileredirect}" /> 
+                </apex:selectList>
+                  
+                 <apex:selectList size="1" value="{!selectedPage}"><b>VisualForce Pages :</b>
+                        <apex:selectoptions value="{!allPage}"/>
+                        <apex:actionSupport event="onchange" action="{!PageRedirect}" />
+                    </apex:selectList>
+                </apex:pageBlockSection>
+                </apex:outputPanel>
+        </apex:pageBlock>
+
+    </apex:form>
+</apex:page>

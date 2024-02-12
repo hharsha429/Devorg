@@ -1,0 +1,9 @@
+<apex:page standardController="Contact" id="pg">
+    <apex:form id="fm">
+        <apex:inputField value="{!Contact.AccountId}" id="ifAcc" />
+    </apex:form>
+    <script>
+    var inpAcc = document.getElementById("pg:fm:ifAcc");
+    inpAcc.setAttribute("readonly","true");   
+    </script>  
+</apex:page>

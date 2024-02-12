@@ -1,0 +1,93 @@
+<aura:component controller="relatedContacts" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="Contacts" type="contact[]"/>
+    <aura:attribute name="Opportunities" type="Opportunity[]"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+   <article class="slds-card">
+<div class="slds-card__header slds-grid">
+<header class="slds-media slds-media_center slds-has-flexi-truncate">
+<div class="slds-media__figure">
+<span class="slds-icon_container slds-icon-standard-account" title="account">
+
+<span class="slds-assistive-text">account</span>
+</span>
+</div>
+<div class="slds-media__body">
+<h2 class="slds-card__header-title">
+<a href="javascript:void(0);" class="slds-card__header-link slds-truncate" title="Accounts">
+<span>Accounts</span>
+</a>
+</h2>
+</div>
+</header>
+</div>
+</article>
+     <table class="slds-table slds-table_bordered slds-table_striped slds-table_cell-buffer slds-table_fixed-layout">
+          <thead>
+               <tr class="slds-text-heading_label">
+                    <th scope="col"><div class="slds-truncate" title="Phone"><ui:inputCheckbox aura:id="TheCheckBox1" /></div></th>
+              <th scope="col"><div class="slds-truncate" title="Name">Name</div></th>
+                    <th scope="col"><div class="slds-truncate" title="Phone">Phone</div></th>
+                    <th scope="col"><div class="slds-truncate" title="Phone">Email</div></th>
+                  
+                     </tr>
+          </thead>
+          <tbody>
+	 <aura:iteration items="{!v.Contacts}" var="item">
+         <tr> 
+                             
+                             
+             		<td><ui:inputCheckbox aura:id="TheCheckBox" /></td>
+                    <td scope="row"><div class="slds-truncate">{!item.LastName}</div></td>
+                    <td><div class="slds-truncate" >{!item.Phone}</div></td>
+        			<td><div class="slds-truncate" >{!item.Email}</div></td>&nbsp;&nbsp;
+             
+             <lightning:button variant="brand" label="View" onclick="{! c.doRedirect }" name="{!item.id}" />
+              
+             </tr>
+            </aura:iteration>
+         </tbody>
+        </table><br/>
+    <article class="slds-card">
+<div class="slds-card__header slds-grid">
+<header class="slds-media slds-media_center slds-has-flexi-truncate">
+<div class="slds-media__figure">
+<span class="slds-icon_container slds-icon-standard-account" title="Opportunity">
+
+<span class="slds-assistive-text">Opportunities</span>
+</span>
+</div>
+<div class="slds-media__body">
+<h2 class="slds-card__header-title">
+<a href="javascript:void(0);" class="slds-card__header-link slds-truncate" title="Opportunities">
+<span>Opportunities</span>
+</a>
+</h2>
+</div>
+</header>
+</div>
+</article>
+         <table class="slds-table slds-table_bordered slds-table_striped slds-table_cell-buffer slds-table_fixed-layout">
+          <thead>
+               <tr class="slds-text-heading_label">
+                    <th scope="col"><div class="slds-truncate" title="Phone"><ui:inputCheckbox aura:id="TheCheckBox1" /></div></th>
+              <th scope="col"><div class="slds-truncate" title="Name">Name</div></th>
+                    <th scope="col"><div class="slds-truncate" title="Phone">Stage</div></th>
+                    <th scope="col"><div class="slds-truncate" title="Phone">Type</div></th>
+                  
+                     </tr>
+          </thead>
+          <tbody>
+	 <aura:iteration items="{!v.Opportunities}" var="Oppr">
+         <tr> 
+                             
+                             
+             		<td><ui:inputCheckbox aura:id="TheCheckBox" /></td>
+                    <td scope="row"><div class="slds-truncate">{!Oppr.Name}</div></td>
+                    <td><div class="slds-truncate" >{!Oppr.StageName}</div></td>
+        			<td><div class="slds-truncate" >{!Oppr.Type}</div></td>&nbsp;&nbsp;
+            
+             </tr>
+            </aura:iteration>
+          </tbody>
+        </table>
+      </aura:component>

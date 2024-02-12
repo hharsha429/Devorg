@@ -1,0 +1,10 @@
+<apex:page controller="testacc">
+    <apex:form >
+     <apex:pageBlock tabStyle="account" title="list of accounts">
+         <apex:pageBlockTable value="{!acc1}" var="a" border="1">
+             <apex:column value="{!a.name}"/>
+             <apex:column value="{!a.phone}"/>
+         </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,15 @@
+<apex:page controller="examp">
+    <apex:form >
+        <apex:pageBlock tabStyle="account" title="my magic ">
+    	<apex:inputCheckbox value="{!opti}" >
+<apex:actionsupport event="onclick" action="{!change}" />
+            </apex:inputCheckbox>
+            <apex:pageBlockSection title="harsha">
+                u can't see second block
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="showri" rendered="{!bool}">
+                Now u can abl to c...
+            </apex:pageBlockSection>
+            </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,24 @@
+<apex:page controller="Acc_conopp_create" >
+    <apex:form >
+          <apex:pageblock title="Hello {!$User.FirstName}!" >
+              <h1>Congratulations</h1>
+              This is your Accession Page !!<p/>
+              <apex:pageBlockSection columns="5">
+                <apex:pageBlockTable value="{!waAccList}" var="a">
+                  <apex:inputField value="{!acc.Name}"/>
+                <apex:inputField value="{!con.lastName}"/>
+                    <apex:inputField value="{!opp.Name}"/>
+                    <apex:inputField value="{!opp.StageName}"/>
+                    <apex:inputField value="{!opp.CloseDate}"/>
+                  </apex:pageBlockTable>
+              </apex:pageBlockSection>
+                          <apex:pageBlockButtons >
+                  <apex:commandButton action="{!save}" value="save"/>
+              
+                  <apex:commandButton action="{!cancel}" value="Cancel">
+                  </apex:commandButton>
+              </apex:pageBlockButtons>
+                  
+          </apex:pageblock>
+      </apex:form>
+</apex:page>

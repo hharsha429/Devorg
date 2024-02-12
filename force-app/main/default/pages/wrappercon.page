@@ -1,0 +1,19 @@
+<apex:page title="Wrapper Demo" controller="wrapperCON" tabStyle="Account">
+    <apex:sectionHeader title="Wrapper Demo"/>
+    <apex:form >
+    <apex:pageBlock title="Setup">
+        <apex:pageBlockButtons location="top">
+            <apex:commandButton value="Run Demo" action="{!buildwrapper}"/>
+        </apex:pageBlockButtons>
+    </apex:pageBlock>
+    <apex:pageBlock >
+        <apex:repeat value="{!wrapout}" var="w">
+            <hr/>
+           <apex:outputText value="{!w.acct.name}" /> <br/>
+                   <apex:repeat value="{!w.opps}" var="wo">
+                       OPPORTUNITY: <apex:outputText value="{!wo.Opp.name}" /> <br/>
+                   </apex:repeat>
+        </apex:repeat>
+    </apex:pageBlock>
+    </apex:form>
+</apex:page>

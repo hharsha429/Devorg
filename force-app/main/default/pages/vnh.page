@@ -1,0 +1,20 @@
+<apex:page >
+    <apex:form >
+    <apex:pageBlock >
+    <apex:pageBlockSection >
+        <apex:pageBlockSectionItem >
+            <apex:outputPanel >
+                
+                <apex:outputLabel >harsha</apex:outputLabel>
+                <div class="requiredInput">
+                    
+                    <div class="requiredBlock"></div>
+                    
+                    <apex:inputText />
+                </div>
+            </apex:outputPanel>
+        </apex:pageBlockSectionItem>
+    </apex:pageBlockSection>
+</apex:pageBlock>
+        </apex:form>
+</apex:page>

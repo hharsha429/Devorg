@@ -1,0 +1,4 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" controller ="newLightningClass" access="global" >
+    <aura:handler name="Init" action="{!c.getConList}" value="{!this}"/> //it will call the action method from lightning controller
+    <aura:attribute name="ContactList" type="List"/> //to store the list of contacts from apex method
+</aura:component>

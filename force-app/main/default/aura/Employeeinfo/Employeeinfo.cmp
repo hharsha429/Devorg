@@ -1,0 +1,14 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" controller ='Employee_info'
+                            access="global" >
+	
+    <aura:attribute type="Employee__c[]" name="EmpList"/>
+    <aura:attribute name="Fields" type="List"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.getEmprecs}"/>
+    
+    <lightning:datatable data="{! v.EmpList }" 
+                         columns="{! v.Fields }" 
+                         keyField="id"
+                         hideCheckboxColumn="true"/>
+    
+</aura:component>

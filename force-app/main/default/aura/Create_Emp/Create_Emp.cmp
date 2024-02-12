@@ -1,0 +1,18 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    
+     <aura:attribute name="fields" type="String[]" default="['Name','harsha1__Phone__c','harsha1__Preferred_Location__c','harsha1__Primary_Skill__c','harsha1__Relevant_Experience__c', 'harsha1__Total_Experience__c']" />
+     <aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="sObjectName" type="String" default="harsha1__Employee__c" />
+    <lightning:card iconName="custom:custom19" title="Create Employee">
+        <div class="slds-p-left_large slds-p-right_medium">	
+            <lightning:recordForm aura:id="recordViewForm" 
+                                  objectApiName="{!v.sObjectName}"
+                                  fields="{!v.fields}"
+                                  columns="2"
+                                  mode="edit"
+                                  onsuccess="{!c.onSuccess}"
+                                  
+                                  />
+        </div>
+    </lightning:card>
+        </aura:component>

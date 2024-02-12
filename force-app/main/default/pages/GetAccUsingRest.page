@@ -1,0 +1,58 @@
+<apex:page controller="fatchAccountRecords1" tabStyle="Account">
+    <apex:form >
+       <!--  <apex:pageBlock title="Custom PickList Demo" id="out">
+            <apex:pageBlockButtons location="Top">
+               <apex:commandButton value="Import" action="{!save}" rerender="out" status="actStatusId" />
+                <apex:actionStatus id="actStatusId">
+                    <apex:facet name="start">
+                        <img src="/img/loading.gif" />
+                    </apex:facet>
+                </apex:actionStatus>
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection >
+                <table>
+                    <tr>
+                        <apex:pageBlockSectionItem >
+                            Source System :
+                            <apex:selectList value="{!selectedSourceId}" multiselect="false" size="1">
+                                <apex:selectOptions value="{!selectedSourceList}" />
+                                <apex:actionSupport event="onchange" reRender="accounts" action="{!FindAccounts}" />
+                            </apex:selectList>
+                        </apex:pageBlockSectionItem>
+
+                    </tr>
+                    <tr>
+                        <apex:pageBlockSectionItem >
+                            Target System :
+                            <apex:selectList value="{!selectedTargetId}" multiselect="false" size="1">
+                                <apex:selectOptions value="{!selectedTargetList}" />
+                            </apex:selectList>
+                        </apex:pageBlockSectionItem>
+                    </tr>
+                    <tr>
+                        <apex:pageBlockSectionItem >
+                            User Name :
+                            <apex:inputtext value="{!Username}" />
+                        </apex:pageBlockSectionItem>
+                    </tr>
+                    <tr>
+                        <apex:pageBlockSectionItem >
+                            Password :
+                            <apex:inputtext value="{!Password}" />
+                        </apex:pageBlockSectionItem>
+                    </tr>
+                    <table>
+                        <tr>
+                            <apex:pageBlockSectionItem >
+                                Account to be Migrated :
+                                <apex:selectList value="{!accountId}" title="Account" size="1" id="accounts">
+                                    <apex:selectOptions value="{!accountList}" />
+                                </apex:selectList>
+                            </apex:pageBlockSectionItem>
+                        </tr>
+                    </table>
+                </table>
+            </apex:pageBlockSection>
+        </apex:pageblock> -->
+    </apex:form>
+</apex:page>

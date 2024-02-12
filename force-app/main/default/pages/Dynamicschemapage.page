@@ -1,0 +1,33 @@
+<apex:page controller="DynamicSchema">
+	<apex:form >
+		<apex:pageBlock title="Schema Example" >
+			<apex:pageBlockSection >
+				<apex:outputLabel value="Objects" />
+				<apex:outputLabel value="Fields" />
+				<apex:selectList value="{!objselected}" size="1">
+					<apex:selectOptions value="{!objects}" />
+			<apex:actionSupport event="onchange" action="{!getFields}" 
+                                                reRender="pg"/>
+				</apex:selectList>
+        <apex:panelGrid columns="3" style="width:100%" id="pg">
+          <apex:selectList value="{!selected}" multiselect="true" 
+                       style="width:150px;height:100px;" size="1">
+	       <apex:selectOptions value="{!nsoptions}"/>	
+	     </apex:selectList>
+		<apex:panelGrid columns="1">
+		<apex:commandButton value="Add" style="width:100px;"
+                                action="{!addFields}" reRender="pg"/>
+			<br/>
+			<br/>
+		<apex:commandButton value="Remove" style="width:100px;" 
+                             action="{!removeFields}" reRender="pg"/>	
+		</apex:panelGrid>	
+	<apex:selectList value="{!removed}" multiselect="true" 
+                                     style="width:150px;height:100px;">
+	 <apex:selectOptions value="{!soptions}"/>	
+	</apex:selectList>	
+				</apex:panelGrid>
+			</apex:pageBlockSection>
+		</apex:pageBlock>
+	</apex:form>
+</apex:page>

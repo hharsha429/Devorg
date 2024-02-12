@@ -1,0 +1,51 @@
+<apex:page controller="ListExample">
+<apex:form >
+<apex:pageBlock title="List of Name " >
+<apex:pageBlockTable value="{!names}" var="a">
+<apex:column value="{!a}" />
+</apex:pageBlockTable>
+</apex:pageBlock>
+<apex:pageBlock title="List of Accounts " >
+<apex:pageBlockTable value="{!accs}" var="a">
+<apex:column value="{!a.Name}" />
+<apex:column value="{!a.Industry}" />
+</apex:pageBlockTable>
+</apex:pageBlock>
+<apex:pageBlock title="List of ProdWrap " >
+<apex:pageBlockTable value="{!products}" var="a">
+<apex:column >
+<apex:facet name="header">
+<apex:inputCheckBox />
+</apex:facet>
+<apex:inputCheckBox value="{!a.flag}"/>
+</apex:column>
+<apex:column headerValue="Product Name" >
+<apex:inputText value="{!a.name}" />
+</apex:column>
+<apex:column headerValue="Quantity" >
+<apex:inputText value="{!a.quant}" />
+</apex:column>
+<apex:column headerValue="Price" >
+<apex:inputText value="{!a.price}" />
+</apex:column>
+</apex:pageBlockTable>
+<apex:pageBlockButtons location="Bottom">
+<apex:commandButton value="Submit" action="{!getValues}"/>
+
+</apex:pageBlockButtons>
+</apex:pageBlock>
+<apex:pageBlock title="List of ProdWrap " rendered="{! !ISNULL(selected)}" id="one" >
+<apex:pageBlockTable value="{!selected}" var="a">
+<apex:column headerValue="Product Name">
+<apex:outputText value="{!a.name}"/>
+</apex:column>
+<apex:column headerValue="Quantity" >
+<apex:outputText value="{!a.quant}"/>
+</apex:column>
+<apex:column headerValue="Price" >
+<apex:outputText value="{!a.price}"/>
+</apex:column>
+</apex:pageBlockTable>
+</apex:pageBlock>
+</apex:form>
+</apex:page>

@@ -1,0 +1,19 @@
+<apex:page controller="check" >
+  <apex:form >  
+      <apex:pageBlock id="trainersBlock" tabStyle="account" title="welcome page">
+          <apex:inputCheckbox id="isEmp" value="{!isChecked}" >
+              <apex:actionsupport event="onclick" rerender="SampleView" />
+          </apex:inputCheckbox>
+          <apex:outputPanel id="SampleView">
+              <apex:pageBlockSection title="my name is harsha" collapsible="false">
+                  <apex:pageblockSectionItem >
+                  </apex:pageblockSectionItem>                           
+              </apex:pageBlockSection>
+              <apex:pageBlockSection rendered="{!isChecked !=true}" title="Myname is showri">
+                  <apex:pageblockSectionItem >
+                  </apex:pageblockSectionItem>                        
+              </apex:pageBlockSection>
+          </apex:outputPanel>
+       </apex:pageBlock>
+  </apex:form>
+</apex:page>

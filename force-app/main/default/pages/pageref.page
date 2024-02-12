@@ -1,0 +1,18 @@
+<apex:page controller="pageref" tabStyle="account">
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageBlockSection title="select pick list values">
+               <apex:pageBlockSectionItem > 
+                <apex:outputText value="City:"/>
+                <apex:selectList size="1" value="{!sel}">
+                    <apex:actionSupport event="onchange" reRender="one" action="{!show}"/>
+                    <apex:selectOptions value="{!se}"></apex:selectOptions>
+                </apex:selectList>
+                   </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        <apex:pageBlock id="one" title="your option is" rendered="{!IF(sel!='None',true,false)}">
+            {!sel1}
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

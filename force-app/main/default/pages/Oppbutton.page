@@ -1,0 +1,16 @@
+<apex:page controller="accountpopulate">
+    <apex:form >
+        <apex:pageblock id="pg">
+            <apex:pageBlockSection columns="1">
+            
+            <apex:inputField value="{!pat.AccountId}">
+                <apex:actionSupport event="onchange" action="{!fetc}" reRender="pg"/>
+             </apex:inputField>
+                <apex:inputField value="{!doc.Name}" />
+               
+            </apex:pageBlockSection>
+        </apex:pageblock>
+    </apex:form>
+
+
+</apex:page>

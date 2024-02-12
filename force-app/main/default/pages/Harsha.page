@@ -1,0 +1,24 @@
+<apex:page >
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageBlockSection >
+                <apex:actionRegion >
+            <apex:outputLabel >Pan Card :</apex:outputLabel>
+           <apex:selectList size="1" >
+               <apex:selectOption itemLabel="Yes" itemValue="Yes"/>
+                <apex:selectOption itemLabel="No" itemValue="No"/>
+            </apex:selectList>
+                    <apex:actionSupport event="onchange" reRender="abc"/>
+                </apex:actionRegion>
+
+                
+                </apex:pageBlockSection>
+            <apex:outputPanel id="abc">
+            <apex:pageBlockSection >
+                                <apex:outputText >Enter Pan No:</apex:outputText>
+                <apex:inputText />
+            </apex:pageBlockSection>
+                </apex:outputPanel>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

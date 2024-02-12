@@ -1,0 +1,11 @@
+<template>
+    <lightning-card title="Count is :">
+        <p class="slds-var-p-around_small"> 
+            Count is:{Count}
+        </p>
+            <c-child-component onincreasecount={updateMessage}
+            ondecreasecount={updateMessage1}
+            ></c-child-component>
+       
+    </lightning-card> 
+</template>

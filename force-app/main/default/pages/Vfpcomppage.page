@@ -1,0 +1,15 @@
+<!--
+    Description
+    *===========
+    * VF Page for using 'GenericPaginationComponent' component.
+    * Displaying three different object lists by reusing the logic of 'GenericPaginationComponent' component.
+    * Author:
+    * =======
+    * 
+    -->
+    <apex:page controller="GenericPaginationUsageContrl" tabStyle="Account">
+    <!-- Default name space is : C ; Referring the Visualforce Component -->
+    <c:Vfpcomp records="{!accLst}" fields="{!accFieldLst}" title="Accounts"/>
+     <!-- <c:Vfpcomp records="{!conLst}" fields="{!conFieldLst}" title="Contacts"/>
+    <c:Vfpcomp records="{!oppLst}" fields="{!oppFieldLst}" title="Opportunities"/>  -->
+    </apex:page>

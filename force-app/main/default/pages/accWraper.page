@@ -1,0 +1,35 @@
+<apex:page controller="DemoWrapper" >
+    <apex:form >
+        <apex:pageBlock >
+            <apex:commandButton value="show" action="{!selected}" reRender="one" />
+             <apex:pageBlockTable value="{!wrpList}" var="w">
+               
+                 
+                 <apex:column >
+                    <apex:facet name="header">
+                       
+                        <apex:inputCheckbox value="{!checkAll}"  onclick="return some();" />
+                                                                      
+                    </apex:facet>
+                    <apex:inputCheckbox value="{!w.check}" id="inputId"/>
+                </apex:column>
+                 
+             
+                <apex:column value="{!w.acc.name}"/>
+                <apex:column value="{!w.acc.rating}"/>
+                <apex:column value="{!w.acc.industry}"/>
+                <apex:column value="{!w.acc.type}"/>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+        <apex:pageBlock id="one" >
+            <apex:pageBlockTable value="{!aList}" var="a">
+               
+                <apex:column value="{!a.name}"/>
+                <apex:column value="{!a.rating}"/>
+                <apex:column value="{!a.industry}"/>
+                <apex:column value="{!a.type}"/>
+                 </apex:pageBlockTable>
+        </apex:pageBlock>
+        <apex:actionFunction name="some" action="{!checkMe}"/>
+    </apex:form>
+</apex:page>

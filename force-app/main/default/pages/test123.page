@@ -1,0 +1,25 @@
+<apex:page >
+<apex:form >
+<script>
+function show()
+{
+    //var one=document.getElementById('{!$Component.one}').value;
+    //var two=document.getElementByid('{!$Component.PB.two}').value;
+    //var three=document.getElemetByid('{!$Component.PB.PBS.three}').value;
+
+alert(ID one==:'+one+'===ID two==:'+two+'===:ID three:three);
+}
+</script>
+<apex:outputLabel >Enter ID one</apex:outputLabel>
+<apex:inputText id="one"/>
+<apex:pageBlock id="PB" title="Table">
+<apex:outputlabel >Enter ID two</apex:outputlabel>
+<apex:inputText id="two"/>
+<apex:pageBlockSection id="PBS" title="Section 1">
+<apex:outputLabel >Enter ID three</apex:outputLabel>
+<apex:inputText id="three"/>
+</apex:pageBlockSection>
+</apex:pageBlock>
+<apex:commandButton value="click" onclick="show()"/>
+</apex:form>
+</apex:page>

@@ -1,0 +1,21 @@
+<template >
+    <lightning-card title="Configure Integration">
+        <template if:false={hasMetadata}>
+        <div class="slds-p-around_medium">
+            <lightning-input label="End Point Url" value={endPoint} onchange={handleEndPointChange}></lightning-input>
+            <lightning-combobox label="Request Type" value={type} options={countryOptions} onchange={handleTypeChange}></lightning-combobox>
+            <lightning-textarea label="Request Json" value={requestJson} onchange={handleJsonChange}></lightning-textarea>
+            <lightning-button label="Next" onclick={handleSubmit} variant="brand"></lightning-button>
+        </div>
+    </template>
+    <div class="slds-p-around_medium">
+        <lightning-input type="checkbox" label="Get From Metadata" onchange={handleChange}></lightning-input>
+            <template if:true={hasMetadata}>
+                <div class="slds-m-vertical_medium">
+                    <lightning-input label="Meta Data Record" value={mdtRec} onchange={handleMdtChange}></lightning-input> 
+                    <lightning-button label="Next" onclick={handleSubmit} variant="brand"></lightning-button> 
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

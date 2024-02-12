@@ -1,0 +1,12 @@
+<apex:page controller="conpage" >
+    <apex:form >
+        `<apex:pageBlock >
+        <apex:pageBlockSection title="account">
+            <apex:outputField title="{!acc.name}"/>
+            <apex:outputText value="{!acc.phone}"/>
+            <apex:outputText value="{!acc.AccountSource}"/>
+            <apex:outputText value="{!acc.industry}"/>
+        </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,13 @@
+<apex:page controller="conpage" >
+    <apex:form >
+        `<apex:pageBlock >
+        <apex:pageBlockSection title="welcome to my page">
+            	<apex:inputField value="{!acc.name}"/>
+            <apex:inputField value="{!acc.phone}"/>
+            <apex:inputField value="{!acc.AccountSource}"/>
+            <apex:inputField value="{!acc.Industry}"/>
+            <apex:commandButton value="Next" action="{!next}"/>
+        </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,41 @@
+<apex:page controller="Invoice">
+    <apex:form >
+        <apex:pageBlock tabStyle="account" title="Customer Details">
+            <apex:pageBlockSection title="Invoice Details">
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Customer Name :"/>
+                    <apex:inputText value="{!name}"/>
+                    
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Phone # :"/>
+                    <apex:inputText value="{!phone}"/>
+                    
+                </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Product Code :"/>
+                    <apex:inputText value="{!pcode}"/>
+                     </apex:pageBlockSectionItem>
+               
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Invoice Number #:"/>
+                    <apex:inputText value="{!invc}"/>
+                     </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Product Name"/>
+                    <apex:inputText value="{!pname}"/>
+                </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Invoce Amount :"/>
+                    <apex:inputText value="{!amount}"/>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+           <apex:pageBlockButtons location="bottom">
+                <apex:CommandLink target="_blank" action="{!show}" style="text-decoration:none">
+                <apex:commandButton value="Genarate Invoice"  />
+            </apex:CommandLink>
+            </apex:pageBlockButtons>
+
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

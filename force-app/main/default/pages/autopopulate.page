@@ -1,0 +1,20 @@
+<apex:page controller="Autopopulate" >
+    <apex:form >
+    <apex:pageBlock id="pg">
+        <apex:pageBlockSection columns="1">
+            
+           <apex:inputField value="{!con.lastname}"/>
+            
+            <apex:inputField value="{!con.accountid}">
+                <apex:actionSupport event="onchange" action="{!fetchMemberDetails}" reRender="pg"/>
+            </apex:inputField>
+            
+            <apex:inputField value="{!acc.phone}"/>
+            
+        </apex:pageBlockSection>
+        <apex:pageBlockButtons >
+            <apex:commandButton value="Save"/>
+        </apex:pageBlockButtons>
+    </apex:pageBlock>
+</apex:form>
+</apex:page>

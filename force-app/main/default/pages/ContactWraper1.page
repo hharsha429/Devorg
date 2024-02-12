@@ -1,0 +1,11 @@
+<apex:page controller="ContactWraper">
+    <apex:pageBlock title=" selected contacts">
+        <apex:pageBlockSection Title="Selected Accounts" collapsible="false">
+            <apex:pageblockTable value="{!cota}" var="s">
+                <apex:column value="{!s.lastName}" />
+   
+                <apex:column value="{!s.Phone}" />
+            </apex:pageblockTable>
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+</apex:page>
