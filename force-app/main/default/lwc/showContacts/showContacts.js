@@ -15,27 +15,29 @@ export default class ShowContacts extends NavigationMixin(LightningElement) {
     hasContacts=true;
     error;
     isShowModal=false;
+    isLoading = false;
     AccColumns = [
      { label: 'Name', fieldName: 'LastName', editable: true },
      { label: 'Phone', fieldName: 'Phone' , editable: true},
      { label: 'Email', fieldName: 'Email', editable: true }
  ];
  handlerAction(){
-    
+  this.isLoading =true;
     getRecords({AccountId :this.recordId})
     .then(result => {
         this.contacts = result;
         if(this.contacts.length === 0){
-            this.hasContacts=false;
+            this.hasContacts=false;   
         }
+        this.isLoading =false; 
     })
     .catch(error => {
         this.error = error;
-
+        this.isLoading =false; 
     })
     this.isShowModal=true;
     this.showDiv = false;
-console.log('showDiv' +this.showDiv);
+console.log('showDiv' + this.isLoading );
 } 
 hideModalBox() {  
     this.isShowModal = false;
